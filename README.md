@@ -1,6 +1,6 @@
 ## Prosody, Syllables, Phonemes and IPA for Hindi words (Python3)
 
-### (1) input.py
+### ```input.py```
 To tokenizing whole file, e.g.```sample_text.txt```,
 
 ```python src/input.py```
