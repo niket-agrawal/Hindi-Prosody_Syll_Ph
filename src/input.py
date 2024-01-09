@@ -1,12 +1,12 @@
-from Tkinter import *
+from tkinter import *
 from itertools import groupby
-import tkFileDialog
+from tkinter import filedialog
 import codecs
 import sys
 import re
 import os
 import xlrd
-import tkFont
+import tkinter.font as TkFont
 import xlsxwriter
 import subprocess
 from Syllabification import Syllabify
@@ -14,8 +14,8 @@ from IPAEquv import IPAEquivalent
 from Syll_label import Labeling
 from filehandling import load_file
 from phoneme import Phoneme
-reload(sys)
-sys.setdefaultencoding('utf-8')
+#reload(sys)
+#sys.setdefaultencoding('utf-8')
 fields = ('Hindi Input', 'IPA Equivalent', 'Underlying Phonemic Form', 'I-Level Syllabification', 'Prosodic Label(PLSB)',
 'Phoneme Level(IPA)', 'Phoneme Level(ASCII)')
 

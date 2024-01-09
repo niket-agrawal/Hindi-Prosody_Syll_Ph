@@ -1,16 +1,16 @@
-from Tkinter import *
+from tkinter import *
 from itertools import groupby
-import tkFileDialog
+#import tkFileDialog
 import codecs
 import sys
 import re
 import os
 import xlrd
-import tkFont
+#import tkFont
 import xlsxwriter
 import subprocess
-reload(sys)
-sys.setdefaultencoding('utf-8')
+#reload(sys)
+#sys.setdefaultencoding('utf-8')
 
 #from input import makeform
 ucv = [u'\u092a', u'\u092c', u'\u092b', u'\u092d', u'\u0924', u'\u0926', u'\u0925', u'\u0927', u'\u091f', u'\u0921',

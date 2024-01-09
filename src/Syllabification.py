@@ -1,6 +1,6 @@
-from Tkinter import *
+from tkinter import *
 from itertools import groupby
-import tkFileDialog
+#import tkFileDialog
 import codecs
 import sys
 import re
@@ -9,8 +9,8 @@ from IPAEquv import IPAEquivalent
 from Labelchang1 import Labelchanger1
 from Labelchang2 import Labelchanger2
 from countvc import countvowel
-reload(sys)
-sys.setdefaultencoding('utf-8')
+#reload(sys)
+#sys.setdefaultencoding('utf-8')
 uvwl = {u'\u0259': 0, u'u': 0, u'E': 0, u'M': 0, u'A': 0, u'O': 0, u'\u0254': 0, "J": 0, "N": 0, u'i': 0, u'a': 0,
         u'U': 0, u'I': 0, u'!': 0, u'#': 0, u'%': 0, u'(': 0, u')': 0, u'_': 0, u'+': 0, u'=': 0, u'1': 0, u'`': 0}
 uvwl1 = [u'\u0259', "u", "E", "A", "O", "M", "J", "N", u'i', u'a', "U", u'\u0254', "I", u'!', u'#', u'%', u'(', u')',
@@ -54,37 +54,33 @@ def Syllabify(entries):
   for k in range(len(vowelindexes)):
 	  for j in range(len(hindi_output)):
 	      if (vowelindexes[k]==hindi_output[j]):
-		  indexvowels.append(j)
-		  indexvowels.sort()
+		      indexvowels.append(j)
+		      indexvowels.sort()
   for k in range(len(consonantindexes)):
 	  for j in range(len(hindi_output)):
 	      if (consonantindexes[k]==hindi_output[j]):
-		  indexconsonants.append(j)
-		  indexconsonants.sort()
+		      indexconsonants.append(j)
+		      indexconsonants.sort()
   global pos
   pos=[]	
    
   hindi_output=Labelchanger2(hindi_output)
   if (countv==1):
-        entries['I-Level Syllabification'].delete(0,END)
-	entries['I-Level Syllabification'].insert(0,hindi_output)
+    entries['I-Level Syllabification'].delete(0,END)
+    entries['I-Level Syllabification'].insert(0,hindi_output) ### don't know if in or out ##Check
 	
   else:
-         
-	hindi_output=Labelchanger1(hindi_output)
-        for k in range(1,len(indexvowels)):
-	      
-	      if((indexvowels[k]-indexvowels[k-1])==2 or (indexvowels[k]-indexvowels[k-1])==1):
-		    
-		      pos += [indexvowels[k-1]]
-		    
-	      if(((indexvowels[k]-indexvowels[k-1])==3 or (indexvowels[k]-indexvowels[k-1]) == 4)):
-		   	
-		    
-                        pos += [(indexvowels[k-1]) +1]
-		      
-	      if((indexvowels[k]-indexvowels[k-1]) == 5 or (indexvowels[k]-indexvowels[k-1]) == 6):
-		      pos += [(indexvowels[k-1]) +2]
+    hindi_output=Labelchanger1(hindi_output)
+    for k in range(1,len(indexvowels)):
+    
+      if((indexvowels[k]-indexvowels[k-1])==2 or (indexvowels[k]-indexvowels[k-1])==1):
+        pos += [indexvowels[k-1]]
+      
+      if(((indexvowels[k]-indexvowels[k-1])==3 or (indexvowels[k]-indexvowels[k-1]) == 4)):
+        pos += [(indexvowels[k-1]) +1]
+        
+      if((indexvowels[k]-indexvowels[k-1]) == 5 or (indexvowels[k]-indexvowels[k-1]) == 6):
+        pos += [(indexvowels[k-1]) +2]
   
   length_pos=len(pos)
   for i in range(length_pos):
@@ -95,7 +91,7 @@ def Syllabify(entries):
   
   for i in range(0,length_pos):
     hindi_output1.insert(pos[i],'.')
-  print "hindi_output after first syll", hindi_output1
+  print("hindi_output after first syll", hindi_output1)
   for i in range(1,len(hindi_output1)-1):
      for j in range(0, len(ustop)):
         if (hindi_output1[i]==ustop[j] and hindi_output1[i+1]=="." and (hindi_output1[i+2]=="r" or hindi_output1[i+2]=="l" or hindi_output1[i+2]==u'\u028b' or hindi_output1[i+2]=="j")):

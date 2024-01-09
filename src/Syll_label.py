@@ -1,6 +1,6 @@
-from Tkinter import *
+from tkinter import *
 from itertools import groupby
-import tkFileDialog
+#import tkFileDialog
 import codecs
 import sys
 import re
@@ -10,8 +10,8 @@ from Labelchang1 import Labelchanger1
 from Labelchang2 import Labelchanger2
 from Syllabification import Syllabify
 
-reload(sys)
-sys.setdefaultencoding('utf-8')
+#reload(sys)
+#sys.setdefaultencoding('utf-8')
 from countvc import countvowel
 
 uvwl1 = [u'\u0259', "u", "E", "A", "O", "M", "J", "N", u'i', u'a', "U", "I", u'!', u'#', u'%', u'(', u')',
@@ -207,10 +207,13 @@ def Labeling(entries):
                     hindi_output1[labelpos[i]] = ""
 
                     # ****** Anusvara Anunashika disambiguation ************************
-    hindi_output1 = filter(bool, hindi_output1)
+    #print(hindi_output1)
+    #hindi_output1 = filter(None, hindi_output1)
+    hindi_output1 = [element for element in hindi_output1 if element]
     labelvowelindexes = list(set(hindi_output1) & set(uvwl1))
     labelindexvowels = []
     for k in range(len(labelvowelindexes)):
+        #print(vars(hindi_output1))
         for j in range(len(hindi_output1)):
             if (labelvowelindexes[k] == hindi_output1[j]):
                 labelindexvowels.append(j)
@@ -424,7 +427,8 @@ def Labeling(entries):
                             hindi_output1[k] = "`"
                             hindi_output1[k + 1] = ""
 
-    hindi_output1 = filter(bool, hindi_output1)
+    #hindi_output1 = filter(None, hindi_output1)
+    hindi_output1 = [element for element in hindi_output1 if element]
     
     if (countv > 1):
         for i in range(4):
