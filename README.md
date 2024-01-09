@@ -1,3 +1,15 @@
+## Prosody, Syllables, Phonemes and IPA for Hindi words (Python3)
+
+### (1) input.py
+To tokenizing whole file, e.g.```sample_text.txt```,
+
+```python src/input.py```
+
+It will generate 2 files in data directory: ```PLS_XML_W3C_Format_Lexicon.txt``` and ```PLS_XML_W3C_Format_Lexicon.txt```
+
+This package adapts from a Python2 code for Hindi language (Python3). 
+Credits to [somnat/Hindi-word-prosody](https://github.com/somnat/Hindi-word-prosody)
+
 # Hindi-Word-Prosody
 - - Pronunciation lexicon is one of the essential resource for building a Speech-to-Text(STT)  or Text-to-Speech (TTS). 
 - - This library is intended for generating the phonemic sequence for a given Hindi graphemic input along with its word-level prosodic structure. 
@@ -8,8 +20,6 @@
 For example: कमला becomes 'kam.la: where "." is the syllable boundary and ' specifies the stressed syllable.
 
 #### More details can be found in the following paper. 
-
-
 
 
 # Citations
