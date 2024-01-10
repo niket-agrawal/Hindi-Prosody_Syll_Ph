@@ -1,9 +1,12 @@
 ## Prosody, Syllables, Phonemes and IPA for Hindi words (Python3)
 
 ### ```input.py```
-To tokenizing whole file, e.g.```sample_text.txt```,
+
+To syllabilfy and find IPA for whole file, e.g.```sample_text.txt```,
 
 ```python src/input.py```
+
+Then select your file from file input/output dialog box.
 
 It will generate 2 files in data directory: ```PLS_XML_W3C_Format_Lexicon.txt``` and ```PLS_XML_W3C_Format_Lexicon.txt```
 
