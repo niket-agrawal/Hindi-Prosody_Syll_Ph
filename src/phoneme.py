@@ -37,7 +37,20 @@ count_superstrong_syllable3=0
 superstrong_syll_pos3=[]
 global hindi_output_list
 hindi_output_list=[]
+
 def Phoneme(entries):
+  try:
+    Phoneme_orig(entries)
+  except:
+    print("NiketCustomError: Sorry ! error for the word ",entries['Hindi Input'].get())
+    entries['Phoneme Level(IPA)'].delete(0,END)
+    entries['Phoneme Level(IPA)'].insert(0,"xxx")
+    entries['Phoneme Level(ASCII)'].delete(0,END)
+    entries['Phoneme Level(ASCII)'].insert(0,"xxx")
+    with open('data/rejected_items_phoneme.txt', 'a', encoding="utf-8-sig") as the_file:
+      the_file.write(entries['Hindi Input'].get())
+
+def Phoneme_orig(entries):
   Labeling(entries)
   hindi_output=(entries['Prosodic Label(PLSB)'].get()).rstrip()
   #hindi_output2 = Labelchanger1(hindi_output)
@@ -178,7 +191,6 @@ def Phoneme(entries):
     
     entries['Phoneme Level(ASCII)'].delete(0,END)
     entries['Phoneme Level(ASCII)'].insert(0,hindi_output_syllab)
-  
 
   for i in range (len(hindi_output1)):
         if((hindi_output1[i]=="$" and i!=final_strong_syll[len(final_strong_syll)-1])  or hindi_output1[i]=="&"):
@@ -236,4 +248,8 @@ def Phoneme(entries):
   entries['Phoneme Level(IPA)'].delete(0,END)
   entries['Phoneme Level(IPA)'].insert(0,hindi_output_syllab)
 
-  
+  #HACK HACK HACK
+  if(hindi_output == "xxx"):
+    print("HACK HACK HACK : ",hindi_output)
+    entries['Phoneme Level(ASCII)'].delete(0,END)
+    entries['Phoneme Level(ASCII)'].insert(0,"xxx")

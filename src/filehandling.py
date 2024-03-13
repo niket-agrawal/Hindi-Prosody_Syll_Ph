@@ -21,8 +21,8 @@ from phoneme import Phoneme
 def load_file(entries):
   fileinput=open(filedialog.askopenfilename(),'r',encoding='utf-8-sig')
   path=os.getcwd()
-  fileoutput=open(path+"/data/"+"PLS_XML_W3C_Format_Lexicon.txt", 'w',encoding='utf-8-sig')
-  fileoutput1=open(path+"/data/"+"PLS_Festival_Format_Lexicon.txt", 'w',encoding='utf-8-sig')
+  fileoutput=open(path+"\\data\\"+"PLS_XML_W3C_Format_Lexicon.txt", 'w',encoding='utf-8-sig')
+  fileoutput1=open(path+"\\data\\"+"PLS_Festival_Format_Lexicon.txt", 'w',encoding='utf-8-sig')
   for word in fileinput:
            hindi_input=word.rstrip()
            entries['Hindi Input'].delete(0,END)

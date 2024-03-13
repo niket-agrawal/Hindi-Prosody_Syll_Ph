@@ -39,6 +39,17 @@ global hindi_output1
 hindi_output1 = []
 
 def Labeling(entries):
+    try:
+        Labeling_orig(entries)
+    except:
+        print("NiketCustomError: Sorry ! error for the word ",entries['Hindi Input'].get())
+        entries['Prosodic Label(PLSB)'].delete(0, END)
+        entries['Prosodic Label(PLSB)'].insert(0, "xxx")
+        with open('data/rejected_items_labeling.txt', 'a', encoding="utf-8-sig") as the_file:
+            the_file.write(entries['Hindi Input'].get())
+    
+
+def Labeling_orig(entries):
     Syllabify(entries)
     hindi_output = (entries['I-Level Syllabification'].get()).rstrip()
     hindi_output2=Labelchanger1(hindi_output)
